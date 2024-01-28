@@ -18,8 +18,45 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
-  },
+    "noFallthroughCasesInSwitch": true,
+
+    /* Paths */
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ],
+      "@pages": [
+        "./src/pages",
+        "./src/pages/*"
+      ],
+      "@components": [
+        "./src/components",
+        "./src/components/*"
+      ],
+      "@utils": [
+        "./src/utils",
+        "./src/utils/*"
+      ],
+      "@types": [
+        "./src/types",
+        "./src/types/*"
+      ],
+      "@images": [
+        "./src/assets/images",
+        "./src/assets/images/*"
+      ],
+      "@icons": [
+        "./src/assets/icons",
+        "./src/assets/icons/*"
+      ],
+      "@3d": [
+        "./src/assets/3d/*"
+      ],
+      "@models": [
+        "./src/models",
+        "./src/models/*"
+      ],
+    }},
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
