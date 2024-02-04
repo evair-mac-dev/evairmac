@@ -1,10 +1,13 @@
 import { cx } from '@utils';
-import { Block, TagWrapper } from '@components';
+import { Block, SocialMedia, TagWrapper } from '@components';
 import Me from '@images/me.jpg';
 import Download from '@icons/download.svg';
 import Github from '@icons/github.svg';
 import Linkedin from '@icons/linkedin.svg';
 import Medium from '@icons/medium.svg';
+
+// Projects
+import JobFlow from '@images/projects/jobflow.png';
 
 const socialMedia = [
   {
@@ -24,6 +27,16 @@ const socialMedia = [
   },
 ];
 
+const projects = [
+  {
+    title: 'JobFlow',
+    description:
+      'JobFlow is a platform that helps developers to track their job applications, interviews, and job offers. It is built using React, Typescript, and TailwindCSS.',
+    github_link: 'github.com/evair-mac-dev/jobflow',
+    image: JobFlow,
+  },
+];
+
 export const Home = () => {
   return (
     <div className={cx('max-w-screen-1.5xl mx-auto')}>
@@ -37,16 +50,7 @@ export const Home = () => {
             </div>
             <div>
               {socialMedia.map(({ link, icon, alt }) => (
-                <a href={`https://${link}`} target="_blank" rel="noreferrer" className={cx('inline-block mx-2')}>
-                  <div
-                    className={cx(
-                      'w-16 h-16 rounded-full shadow-alternative-box flex items-center justify-center',
-                      'hover:shadow-alternative-box-2',
-                    )}
-                  >
-                    <img src={icon} alt={alt} className={cx('w-7 h-7')} />
-                  </div>
-                </a>
+                <SocialMedia key={link} link={link} icon={icon} alt={alt} />
               ))}
             </div>
           </Block>
@@ -80,11 +84,26 @@ export const Home = () => {
         <Block>
           <TagWrapper />
           <h2 className={cx('text-3xl  mb-4 mt-5')}>My Projects</h2>
-          <p>First project is going to be publish 31-01-2024</p>
+          <div className={cx('grid grid-cols-1 gap-4')}>
+            {projects.map((project, index) => (
+              <Block key={index} classNames={cx('w-full', 'flex flex-col gap-8 p-4', 'lg:flex-row')}>
+                <div className={cx('min-w-52')}>
+                  <img src={project.image} alt={project.title} className={cx('rounded-xl')} />
+                </div>
+                <div className={cx('flex flex-col justify-around w-full')}>
+                  <div>
+                    <h3 className={cx('text-2xl font-medium mb-4')}>{project.title}</h3>
+                    <p className={cx('text-gray-400 mb-4')}>{project.description}</p>
+                  </div>
+                  <SocialMedia link={project.github_link} icon={Github} alt="github icon" />
+                </div>
+              </Block>
+            ))}
+          </div>
         </Block>
       </section>
 
-      <footer className={cx("w-full px-6 py-4, 'lg:px-8'")}>
+      <footer className={cx('w-full px-6 py-4', 'lg:px-8')}>
         <Block>
           <div className={cx('flex flex-col flex-wrap gap-12', 'md:flex-row md:justify-between')}>
             <div className={cx('max-w-96')}>

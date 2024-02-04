@@ -21,6 +21,13 @@ export default {
         '8xl': '90rem',
         'screen-1.5xl': '88rem',
       },
+      width: {
+        100: '25rem',
+        120: '30rem',
+        140: '35rem',
+        150: '37.5rem',
+        160: '40rem',
+      },
     },
   },
   plugins: [],
